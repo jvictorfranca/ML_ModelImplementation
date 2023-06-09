@@ -26,4 +26,8 @@ def evaluate_model(name, model, features, labels):
                                                                                    precision,
                                                                                    recall,
                                                                                    round((end - start)*1000, 1)))
-    
+
+for name, mdl in models.items():
+    evaluate_model(name, mdl, val_features, val_labels)
+
+evaluate_model('Random Forest', models['RF'], te_features, te_labels)
