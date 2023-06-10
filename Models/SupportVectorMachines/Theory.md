@@ -7,20 +7,24 @@
 
 <table>
 <tr>
-<th> Good </th>
-<th> Bad </th>
+<th> When to Use it </th>
+<th> When not to Use it </th>
 </tr>
 <tr>
 <td>
 
- - this is good
- - this is good also
+ - Binary target variable
+ - Feature-to-row ration is very high (short and fat)
+ - Very complex relationships
+ - Lots of outliers
 
 </td>
 <td>
 
- - this is bad
- - this is bad also
+ - Feature-to-row ratio is very low (long and skinny)
+ - Transparency is important
+ - Intrested in significance
+ - Looking for a quick benchmark model
 
 </td>
 </tr>

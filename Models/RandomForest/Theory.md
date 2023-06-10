@@ -7,20 +7,24 @@
 
 <table>
 <tr>
-<th> Good </th>
-<th> Bad </th>
+<th> When to Use it </th>
+<th> When not to Use it </th>
 </tr>
 <tr>
 <td>
 
- - this is good
- - this is good also
+ - Categorical or continuos target variable
+ - Interested in significance of predictors
+ - Very flexible
+ - Training time is important
+ - Messy data (missing values, outliers)
 
 </td>
 <td>
 
- - this is bad
- - this is bad also
+ - Solving a very complex, novel problem
+ - Transparency is important
+ - Prediction time is important
 
 </td>
 </tr>

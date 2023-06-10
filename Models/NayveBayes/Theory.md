@@ -14,15 +14,13 @@
 <td>
 
  - Categorical or continuos target variable
- - Interested in significance of predictors
  - Transparency is important
- - Need a quick benchmarck model
- - Very simple problems
+ - Need a quick initial benchmark
 
 </td>
 <td>
-
- - Solving a complex problem (bested by ensamble methods of Decion Tree)
+ - Complex problems
+ - Small amount of data
  - Performance is the only thing that matters
 
 </td>

@@ -7,20 +7,25 @@
 
 <table>
 <tr>
-<th> Good </th>
-<th> Bad </th>
+<th> When to Use it </th>
+<th> When not to Use it </th>
 </tr>
 <tr>
 <td>
 
- - this is good
- - this is good also
+ - Categorical or continous target variable
+ - Very complex relationshipts
+ - Peformance is the only thing that matters
+ - Control over the training process is very important
 
 </td>
 <td>
 
- - this is bad
- - this is bad also
+ - Image recognition, time series, etc (Bested by deep learning)
+ - Transparency is importance
+ - Interested in significance of predictors (black box)
+ - Need a quick benchmark model
+ - Limited data avaliable
 
 </td>
 </tr>
