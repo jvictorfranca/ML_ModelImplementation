@@ -10,8 +10,10 @@ pib = pd.read_excel("Datasets/pib_mensal.xlsx", parse_dates=True, index_col=0)
 pib_ts = pd.Series(pib['pib'].values, index=pib.index)
  
 
-decomp_aditivo = seasonal_decompose(pib_ts, model='additive', period=12)
+decomp_mul = seasonal_decompose(pib_ts, model='multiplicative', period=12)
+decomp_mul.plot()
 
-decomp_aditivo.plot()
-plt.suptitle('Decomposicao Aditiva do PIB')
+plt.suptitle('Decomposicao Multiplicativa do PIB')
 plt.show()
+
+
