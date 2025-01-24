@@ -1,3 +1,5 @@
+#To check if a variable is statistically relevant for the regression model.
+
 import pandas as pd
 import statsmodels.api as sm
 from scipy import stats #chi2 statistic
