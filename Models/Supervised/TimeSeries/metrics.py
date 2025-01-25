@@ -81,4 +81,4 @@ def computeTheilU2(y_true, y_pred):
 
 theil = computeTheilU2(reais,previstos)
 
-theil
+print(theil)
