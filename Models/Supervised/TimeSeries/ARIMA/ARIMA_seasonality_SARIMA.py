@@ -58,3 +58,39 @@ arimavarejo = auto_arima(varejotreino_diff,
 
 # Exibir o resumo do modelo ajustado
 print(arimavarejo.summary())
+
+#: Prever 24 passos à frente na série diferenciada
+n_periods = 24
+previsoes_diff = arimavarejo.predict(n_periods=n_periods)
+print(f"Previsões diferenciadas: {previsoes_diff}")
+
+# Índices das previsões (mesmo formato de data da série de treino e teste)
+index_of_fc = pd.date_range(varejotreino.index[-1], periods=n_periods+1, freq='MS')[1:]
+
+# Para voltar ao nível original:
+# Iterar para reverter a diferenciação das previsões
+ultimo_valor_original = varejotreino.iloc[-1] # Último valor conhecido da série original (não diferenciada)
+previsoes_nivel_original = [ultimo_valor_original]
+print(ultimo_valor_original)
+print(previsoes_nivel_original)
+
+#Somar as previsões diferenciadas ao último valor conhecido da série original
+for previsao in previsoes_diff:
+    novo_valor = previsoes_nivel_original[-1] + previsao
+    previsoes_nivel_original.append(novo_valor)
+
+#Remover o primeiro valor, pois é o último valor conhecido da série original
+previsoes_nivel_original = previsoes_nivel_original[1:]
+print(previsoes_nivel_original)
+
+# Converter previsões de volta para uma Série Pandas com o índice correto
+previsoes_nivel_original_series = pd.Series(previsoes_nivel_original, index=index_of_fc)
+print(previsoes_nivel_original_series)
+
+#  Garantir que as previsões e os valores reais estejam alinhados para o MAPE
+previsoes_series_alinhadas = previsoes_nivel_original_series[:len(varejoteste)].dropna()
+varejoteste_alinhada = varejoteste.loc[previsoes_series_alinhadas.index]
+
+from sklearn.metrics import mean_absolute_percentage_error
+mape = mean_absolute_percentage_error(varejoteste_alinhada, previsoes_series_alinhadas)*100
+print(f'MAPE: {mape}')
