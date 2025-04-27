@@ -42,6 +42,8 @@ len(ccp_alphas)
 
 grid = tree.cost_complexity_pruning_path(X_train, y_train)
 
+print(ccp_alphas)
+
 param_grid  = {'ccp_alpha': ccp_alphas[::10]}
 
 grid_search = GridSearchCV(estimator=tree, 
@@ -52,6 +54,8 @@ grid_search = GridSearchCV(estimator=tree,
 # Treinando o modelo com o grid search
 grid_search.fit(X_train, y_train)
 
+best_score = grid_search.best_score_
+print(best_score)
 best_params = grid_search.best_params_
 print(best_params)
 
